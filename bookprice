@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+class book {
+    int price;  // Renamed the member variable to avoid conflict
+public:
+    // Default constructor
+    book() {
+        price = 0;
+    }
+
+    // Parameterized constructor
+    book(int p) {
+        price = p;
+    }
+
+    // Function to apply discount
+    void discount() {
+        if (price <= 500)
+            price -= price * 10 / 100;
+        else
+            price -= price * 20 / 100;
+    }
+
+    // Function to display the price
+    void display_price() {  // Renamed the function to 'display_price'
+        cout << "Book price: " << price << endl;
+    }
+};
+
+int main() {
+    book b1(100);   // Create book object with price 100
+    book b2(400);   // Create book object with price 400
+
+
+    b1.discount();  // Apply discount to b1
+    b2.discount();  // Apply discount to b2
+
+    b1.display_price();  // Display book price for b1
+    b2.display_price();  // Display book price for b2
+
+    return 0;
+}
